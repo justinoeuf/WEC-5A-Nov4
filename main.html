@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Lesson</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+```
+    body {
+        font-family: system-ui, -apple-system, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+        cursor: pointer;
+        user-select: none;
+        -webkit-user-select: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    #sentence {
+        font-size: 3rem;
+        text-align: center;
+        line-height: 1.4;
+        max-width: 900px;
+    }
+
+    @media (max-width: 600px) {
+        #sentence {
+            font-size: 2.6rem;
+        }
+    }
+</style>
+```
+
+</head>
+<body>
+    <div id="sentence">Tap to start</div>
+
+```
+<script>
+    const sentences = [
+        "I want to go apple picking this weekend.",
+        "I would like to drink a pumpkin spice latte.",
+        "I need to buy a warm jacket.",
+        "I want to visit a farmers market in D.C.",
+        "I would like to bake a pumpkin pie.",
+        "I need to rake the leaves in my yard.",
+        "I want to see the fall colors in Rock Creek Park.",
+        "I would like to go to a Thanksgiving parade.",
+        "I need to buy a turkey for dinner.",
+        "I want to take pictures of the fall leaves.",
+        "I want to learn how to cook a new recipe.",
+        "I would like to see a live concert.",
+        "I need to find a new job.",
+        "I want to buy a gift for my friend's birthday.",
+        "I would like to read a new book this month.",
+        "I need to clean my apartment.",
+        "I want to join a gym near my home.",
+        "I would like to watch a scary movie.",
+        "I need to pay my phone bill.",
+        "I want to take an English class next semester.",
+        "I would like to eat at a new restaurant.",
+        "I need to buy some groceries.",
+        "I want to visit the Smithsonian Museum.",
+        "I would like to see the White House.",
+        "I need to buy an umbrella.",
+        "I want to call my family tonight.",
+        "I would like to travel to New York in December.",
+        "I need to buy some gloves for winter.",
+        "I want to decorate my home for the holidays.",
+        "I would like to invite friends over for dinner.",
+        "I would like to adopt a raccoon.",
+        "I need a thousand pumpkins for my living room.",
+        "I want to eat ten pies in one day.",
+        "I would like to teach my cat how to dance.",
+        "I need a new job as a professional leaf counter.",
+        "I want to wear a turkey costume to work.",
+        "I would like to build a snowman before it even snows.",
+        "I need a pumpkin spice latte the size of my car."
+    ];
+
+    let usedSentences = [];
+    const sentenceElement = document.getElementById('sentence');
+
+    function getRandomSentence() {
+        if (usedSentences.length === sentences.length) {
+            usedSentences = [];
+        }
+
+        const availableSentences = sentences.filter(s => !usedSentences.includes(s));
+        const randomIndex = Math.floor(Math.random() * availableSentences.length);
+        const selectedSentence = availableSentences[randomIndex];
+
+        usedSentences.push(selectedSentence);
+        return selectedSentence;
+    }
+
+    document.body.addEventListener('click', function() {
+        sentenceElement.textContent = getRandomSentence();
+    });
+</script>
+```
+
+</body>
+</html>
